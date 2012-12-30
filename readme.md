@@ -27,6 +27,22 @@ The script will
 - Launch your project in Sublime text 2
 - Open your newly created wordpress website in your favourite browser
 
+##Requirements
+- I created this script for MAC, I don't know if it works on other platforms.
+- MAMP
+- codeKit
+- sublime text 2
+- and sFTP plugin if you want
+
+##Installation
+JPC is a shell script with a .command extension to make it double clickable.
+Copy the newproject.command file in your all projects folder
+Double click
+That's all
+
+##Configuration
+At the beginning 
+
 
 
 

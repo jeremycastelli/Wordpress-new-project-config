@@ -8,7 +8,7 @@
 DIRECTORY=""
 
 # wordpress url must be a zip to download
-WORDPRESS_URL="http://fr.wordpress.org/latest-fr_FR.zip"
+WORDPRESS_URL="http://wordpress.org/latest.zip"
 
 # Theme must be a git repository
 THEME_URL="https://github.com/jeremycastelli/jelli.git"
@@ -19,7 +19,7 @@ DB_PASSWORD='root'
 DB_HOST='localhost'
 
 # Local URL
-LOCAL_URL='http://macbook-pro-de-pitch.local/'
+LOCAL_URL='http://localhost:8888/'
 
 # --------------------
 # Set directory

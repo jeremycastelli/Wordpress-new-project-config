@@ -22,7 +22,7 @@ The script will
 	- plugins
 	- everything (it will be helpfull for the 1st migration on a remote server)
 - Create a Sublime text 2 sFTP config file sftp-config.json in each previous folder.
-- Create a new project to watch in codeKit 
+- Create a new project in codeKit 
 - Launch your project in Sublime text 2
 - Open your newly created wordpress website in your favourite browser
 

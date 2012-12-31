@@ -1,7 +1,7 @@
-Jelli Project Config
+Wordpress New Project Config
 ====================
 
-##What is Jelli Project Config?
+##What is Wordpress New Project Config?
 This little script will save you the hassle of all the repetitives tasks each time you start a new wordpress project.
 
 ##So what it does?
@@ -35,7 +35,7 @@ The script will
 - and sFTP plugin if you want
 
 ##Installation
-JPC is a shell script with a .command extension to make it double clickable.
+WNPC is a shell script with a .command extension to make it double clickable.
 Copy the newproject.command file in your all projects folder
 Double click
 That's all

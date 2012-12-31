@@ -36,9 +36,10 @@ The script will
 
 ##Installation
 WNPC is a shell script with a .command extension to make it double clickable.
-Copy the newproject.command file in your all projects folder
-Double click
-That's all
+So you just have to put your copy of the newproject.command file in your all projects folder (usually htdocs in MAMP) and ... that's all, you just have to double click on it.
+
+For sure you could want to put the script in a more accessible place, in this case edit the script and change the DIRECTORY variable.
+
 
 ##Configuration
 You can edit the script with your favourite code editor and change some variables.

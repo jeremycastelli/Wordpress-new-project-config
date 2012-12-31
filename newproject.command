@@ -46,9 +46,9 @@ fi
 /Applications/MAMP/Library/bin/mysql -u $DB_USER -p$DB_PASSWORD -e "create database "$PROJECT_NAME
 
 # --------------------
-# Set FTP parmmeters for sublime SFTP mapping
+# Set FTP parameters for sublime SFTP mapping
 # --------------------
-echo "If you want to configure sFTP now, please enter FTP host, else leave blank"
+echo "If you want to configure sFTP now, please enter FTP host, else just press enter"
 read FTP_HOST
 if [[ $FTP_HOST != "" ]]; then
 	echo "FTP user ?"

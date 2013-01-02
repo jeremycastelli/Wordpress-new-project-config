@@ -11,7 +11,7 @@ DIRECTORY=""
 WORDPRESS_URL="http://wordpress.org/latest.zip"
 
 # Theme must be a git repository
-THEME_URL="https://github.com/jeremycastelli/jelli.git"
+THEME_URL="https://github.com/jeremycastelli/Jelli.git"
 
 # Local database with MAMP
 DB_USER='root'
@@ -46,9 +46,9 @@ fi
 /Applications/MAMP/Library/bin/mysql -u $DB_USER -p$DB_PASSWORD -e "create database "$PROJECT_NAME
 
 # --------------------
-# Set FTP parameters for sublime SFTP mapping
+# Set FTP parmmeters for sublime SFTP mapping
 # --------------------
-echo "If you want to configure sFTP now, please enter FTP host, else just press enter"
+echo "If you want to configure sFTP now, please enter FTP host, else leave blank"
 read FTP_HOST
 if [[ $FTP_HOST != "" ]]; then
 	echo "FTP user ?"
@@ -71,9 +71,12 @@ cd $PROJECT_NAME
 # --------------------
 # Fetch Wordpress latest build
 # --------------------
+echo 'Download Wordpress...'
 curl -o wordpress.zip $WORDPRESS_URL
-unzip wordpress.zip && cp -R wordpress/* .
+echo 'Unzip Wordpress...'
+unzip -q wordpress.zip && cp -R wordpress/* .
 rm wordpress.zip && rm -rf wordpress && rm readme.html && rm license.txt
+
 
 # --------------------
 # Fetch H5BP server-config .htaccess
@@ -85,6 +88,7 @@ rm -rf server-configs
 # --------------------
 # Fetch base theme & remove default themes
 # --------------------
+echo 'Remove themes and plugins...'
 cd wp-content/themes/
 git clone $THEME_URL $PROJECT_NAME
 rm -r twentyten
@@ -99,16 +103,51 @@ rm ../plugins/hello.php
 # --------------------
 # Create Wordpress wp-config.php
 # --------------------
+echo 'Create wp-config...'
 cd $PROJECT_DIR
-sed -e s/"'DB_NAME', '[a-z_]*'"/"'DB_NAME', '"$PROJECT_NAME"'"/ \
-	-e s/"'DB_USER', '[a-z_]*'"/"'DB_USER', '"$DB_USER"'"/ \
-	-e s/"'DB_PASSWORD', '[a-z_]*'"/"'DB_PASSWORD', '"$DB_PASSWORD"'"/ \
-	-e s/"'DB_HOST', '[a-z_]*'"/"'DB_HOST', '"$DB_HOST"'"/ \
-	-e s/"$table_prefix  = 'wp_';"/"$table_prefix  = '"$TABLE_PREFIX"';"/ <wp-config-sample.php >wp-config.php
+touch wp-config-local.php
+echo "<?php
+define( 'DB_NAME', '"$PROJECT_NAME"' );
+define( 'DB_USER', '"$DB_USER"' );
+define( 'DB_PASSWORD', '"$DB_PASSWORD"' );
+define( 'DB_HOST', '"$DB_HOST"' );" >wp-config-local.php
+touch db.txt
+echo "if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
+	include( dirname( __FILE__ ) . '/wp-config-local.php' );
+} else {
+	define( 'DB_NAME', '' );
+	define( 'DB_USER', '' );
+	define( 'DB_PASSWORD', '' );
+	define( 'DB_HOST', '' ); // Probably 'localhost'
+}" > db.txt
+
+sed -e'
+/DB_NAME/,/localhost/ c\
+hello
+' \
+<wp-config-sample.php >wp-config-temp.php
+
+sed '/hello/ {
+r db.txt
+d
+}'<wp-config-temp.php >wp-config.php
+mv wp-config.php wp-config-temp.php
+
+curl -o salt.txt https://api.wordpress.org/secret-key/1.1/salt/
+
+sed '/#@-/r salt.txt' <wp-config-temp.php >wp-config.php
+mv wp-config.php wp-config-temp.php
+
+sed "/#@+/,/#@-/d" <wp-config-temp.php >wp-config.php
+
+rm wp-config-temp.php
+rm db.txt
+rm salt.txt
 
 # --------------------
 # Create Sublime Project config file
 # --------------------
+echo 'Create Sublime text 2 project file...'
 SUBLIME_PROJECT_FILE=$PROJECT_NAME".sublime-project"
 touch $SUBLIME_PROJECT_FILE
 echo '{
@@ -141,6 +180,7 @@ echo '{
 # --------------------
 # Create sFTP config files
 # --------------------
+echo 'Create FTP files...'
 function create_FTP_file()
 {
 	touch sftp-config.json
@@ -168,7 +208,7 @@ function create_FTP_file()
 	    "ignore_regexes": [
 	        "\\\\.sublime-(project|workspace)", "sftp-config(-alt\\\\d?)?\\\\.json",
 	        "sftp-settings\\\\.json", "/venv/", "\\\\.svn", "\\\\.hg", "\\\\.git",
-	        "\\\\.bzr", "_darcs", "CVS", "\\\\.DS_Store", "Thumbs\\\\.db", "desktop\\\\.ini"
+	        "\\\\.bzr", "_darcs", "CVS", "\\\\.DS_Store", "Thumbs\\\\.db", "desktop\\\\.ini","wp-config-local.php"
 	    ],
 	    //"file_permissions": "664",
 	    //"dir_permissions": "775",
@@ -199,15 +239,29 @@ fi
 # --------------------
 # Launch sublime project
 # --------------------
+echo 'Launch Sublime text 2'
 cd $PROJECT_DIR
 sublime $SUBLIME_PROJECT_FILE
 
 # --------------------
 # Create a new project in CodeKit
 # --------------------
+echo 'Create codekit project'
 open -a /Applications/CodeKit.app $PROJECT_DIR"/wp-content/themes/"$PROJECT_NAME
+
+# --------------------
+# git init
+# --------------------
+echo 'git init'
+git init
+echo ".DS_Store
+wp-config-local.php" > .gitignore
 
 # --------------------
 # Launch default browser
 # --------------------
+echo 'Launch browser'
 open 'http://macbook-pro-de-pitch.local/'$PROJECT_NAME
+
+echo 'Installation Complete, press enter to quit'
+read

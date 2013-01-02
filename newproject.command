@@ -88,7 +88,7 @@ rm -rf server-configs
 # --------------------
 # Fetch base theme & remove default themes
 # --------------------
-echo 'Remove themes and plugins...'
+echo 'Remove default themes and plugins...'
 cd wp-content/themes/
 git clone $THEME_URL $PROJECT_NAME
 rm -r twentyten
@@ -153,17 +153,10 @@ touch $SUBLIME_PROJECT_FILE
 echo '{
 	"folders":
 	[
-		{
-			"path": ".",
-			"file_exclude_patterns":[
-				"._*",
-				"*.sublime-project",
-				"*.sublime-workspace"
-			]
-		},
+		
 		{
 			"path": "./wp-content/themes/'$PROJECT_NAME'",
-			"name": "template",
+			"name": "My theme",
 			"file_exclude_patterns":[
 				"._*"
 			]
@@ -172,6 +165,15 @@ echo '{
 			"path": "./wp-content/plugins",
 			"file_exclude_patterns":[
 				"._*"
+			]
+		},
+		{
+			"path": ".",
+			"name": "All website",
+			"file_exclude_patterns":[
+				"._*",
+				"*.sublime-project",
+				"*.sublime-workspace"
 			]
 		}
 	]

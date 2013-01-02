@@ -21,9 +21,9 @@ The script will
 - Exclude wp-config-local.php in .gitignore and Sublime ftp config file 
 - Create a Sublime text 2 project config file (projectName.sublime-project)
 - Configure .sublime-project file with 3 folders : 
-	- your theme
+	- My theme
 	- plugins
-	- everything (it will be helpfull for the 1st migration on a remote server)
+	- All website (it will be helpfull for the 1st migration on a remote server)
 - Prompt you if you want to configure ftp for Sublime text 2
 - Create a Sublime text 2 sFTP config file sftp-config.json in each folder.
 - Create a new project in codeKit 

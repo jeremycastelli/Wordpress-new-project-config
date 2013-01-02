@@ -7,7 +7,7 @@ This little script will save you the hassle of all the repetitives tasks each ti
 ##So what it does?
 The script will
 - Prompt you for a project name
-- Create a new folder
+- Create a new folder with the project name
 - Fetch and Install the latest wordpress build
 - Remove readme.html and license.txt
 - Fetch your favorite starter theme and rename it with your project name
@@ -15,13 +15,17 @@ The script will
 - Remove Hello Dolly plugin
 - Fetch H5BP server-configs .htaccess
 - Create a database with your project name
-- Prompt you for a table prefix and configure wp-config.php
+- Prompt you for a table prefix
+- Configure wp-config.php and change update salt strings
+- Create a wp-config-local.php file for local database parameters 
+- Exclude wp-config-local.php in .gitignore and Sublime ftp config file 
 - Create a Sublime text 2 project config file (projectName.sublime-project)
 - Configure .sublime-project file with 3 folders : 
 	- your theme
 	- plugins
 	- everything (it will be helpfull for the 1st migration on a remote server)
-- Create a Sublime text 2 sFTP config file sftp-config.json in each previous folder.
+- Prompt you if you want to configure ftp for Sublime text 2
+- Create a Sublime text 2 sFTP config file sftp-config.json in each folder.
 - Create a new project in codeKit 
 - Launch your project in Sublime text 2
 - Open your newly created wordpress website in your favourite browser

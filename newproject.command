@@ -5,7 +5,7 @@
 # --------------------
 
 # If you left current directory blank, it will take the current directory 
-DIRECTORY=""
+DIRECTORY="/Applications/MAMP/htdocs/"
 
 # wordpress url must be a zip to download
 WORDPRESS_URL="http://wordpress.org/latest.zip"
@@ -159,7 +159,8 @@ echo '{
 			"name": "My theme",
 			"file_exclude_patterns":[
 				"._*"
-			]
+			],
+			"folder_exclude_patterns": [".sass-cache"]
 		},
 		{
 			"path": "./wp-content/plugins",
@@ -174,7 +175,8 @@ echo '{
 				"._*",
 				"*.sublime-project",
 				"*.sublime-workspace"
-			]
+			],
+			"folder_exclude_patterns": [".sass-cache"]
 		}
 	]
 }' > $SUBLIME_PROJECT_FILE
@@ -257,7 +259,8 @@ open -a /Applications/CodeKit.app $PROJECT_DIR"/wp-content/themes/"$PROJECT_NAME
 echo 'git init'
 git init
 echo ".DS_Store
-wp-config-local.php" > .gitignore
+wp-config-local.php
+.sass-cache" > .gitignore
 
 # --------------------
 # Launch default browser

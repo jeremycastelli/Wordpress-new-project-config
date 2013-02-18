@@ -54,11 +54,9 @@ and for sure, you can modify or delete some part not useful for you
 
 ##Changelog
 
-###v1.1
-- Split the configuration part in an another file config.cfg
-- gitignore config.cfg
-
 ###v1.1.1
 - Fixed table_prefix issue
 
-
+###v1.1
+- Split the configuration part in an another file config.cfg
+- gitignore config.cfg

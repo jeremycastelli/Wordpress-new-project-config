@@ -39,15 +39,11 @@ The script will
 - and sFTP plugin if you want
 
 ##Installation
-WNPC is a shell script with a .command extension to make it double clickable.
-So you just have to put your copy of the newproject.command file in your all projects folder (usually htdocs in MAMP) and ... that's all, you just have to double click on it.
-
-For sure you could want to put the script in a more accessible place, in this case edit the script and change the DIRECTORY variable.
-
+Just duplicate config-sample.cfg to config.cfg
 
 ##Configuration
 You can edit the script with your favourite code editor and change some variables.
-- DIRECTORY you can type your projects folder path or left it blank, in this case, it will take the current folder
+- DIRECTORY you can type your projects folder path
 - WORDPRESS_URL must be a zip to download, I use zip download rather than a git repository cause I personally fetch a locale (french) version of wordpress 
 - THEME_URL must be a git repository
 - DB_USER, DB_PASSWORD, DB_HOST these are the defaults for MAMP
@@ -56,7 +52,11 @@ You can edit the script with your favourite code editor and change some variable
 and for sure, you can modify or delete some part not useful for you
 
 
+##Changelog
 
+###v1.1
+- Split the configuration part in an another file config.cfg
+- gitignore config.cfg
 
 
 

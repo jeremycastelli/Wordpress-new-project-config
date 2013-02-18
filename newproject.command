@@ -1,32 +1,16 @@
 #!/bin/sh
 
+# Version = 1.1
+
 # --------------------
-# Variables declaration
+# Load Variables
 # --------------------
-
-# If you left current directory blank, it will take the current directory 
-DIRECTORY="/Applications/MAMP/htdocs/"
-
-# wordpress url must be a zip to download
-WORDPRESS_URL="http://wordpress.org/latest.zip"
-
-# Theme must be a git repository
-THEME_URL="https://github.com/jeremycastelli/Jelli.git"
-
-# Local database with MAMP
-DB_USER='root'
-DB_PASSWORD='root'
-DB_HOST='localhost'
-
-# Local URL
-LOCAL_URL='http://localhost:8888/'
+CURRENTDIRECTORY=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+source $CURRENTDIRECTORY/config.cfg
 
 # --------------------
 # Set directory
 # --------------------
-if [[ $FTP_HOST == "" ]]; then
-	DIRECTORY=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
-fi
 cd $DIRECTORY
 
 # --------------------

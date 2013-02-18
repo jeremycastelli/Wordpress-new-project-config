@@ -23,7 +23,7 @@ read PROJECT_NAME
 # Create database
 # --------------------
 echo "For local database configuration, I will use project name as database name, I just need table prefix (default : wp_)"
-read table_prefix
+read TABLE_PREFIX
 if [[ $TABLE_PREFIX == "" ]]; then
 	TABLE_PREFIX="wp_"
 fi
@@ -123,6 +123,9 @@ sed '/#@-/r salt.txt' <wp-config-temp.php >wp-config.php
 mv wp-config.php wp-config-temp.php
 
 sed "/#@+/,/#@-/d" <wp-config-temp.php >wp-config.php
+mv wp-config.php wp-config-temp.php
+
+sed s/wp_/$TABLE_PREFIX/ <wp-config-temp.php >wp-config.php
 
 rm wp-config-temp.php
 rm db.txt

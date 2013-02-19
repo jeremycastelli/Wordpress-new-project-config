@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Version = 1.1
+# Version = 1.1.2
 
 # --------------------
 # Load Variables
@@ -18,6 +18,10 @@ cd $DIRECTORY
 # --------------------
 echo "What is the project name ?"
 read PROJECT_NAME
+while [[ -z "$PROJECT_NAME" ]]; do
+    echo "Please, type your project name:"
+    read PROJECT_NAME
+done
 
 # --------------------
 # Create database

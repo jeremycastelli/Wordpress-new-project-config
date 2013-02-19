@@ -54,6 +54,9 @@ and for sure, you can modify or delete some part not useful for you
 
 ##Changelog
 
+###v1.1.2
+- Empty values are now not allowed for project name (thanks to <a href="https://github.com/carlesjove" >Carles Jove</a>)
+
 ###v1.1.1
 - Fixed table_prefix issue
 

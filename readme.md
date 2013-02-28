@@ -54,6 +54,9 @@ and for sure, you can modify or delete some part not useful for you
 
 ##Changelog
 
+###v1.2.1
+- Fixed sftp config process (thanks to <a href="https://github.com/carlesjove" >Carles Jove</a>)
+
 ###v1.2
 - Do not allow empty strings on FTP config, and allow to abort process (thanks to <a href="https://github.com/carlesjove" >Carles Jove</a>)
 

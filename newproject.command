@@ -36,8 +36,11 @@ fi
 # --------------------
 # Set FTP parmmeters for sublime SFTP mapping
 # --------------------
-echo "If you want to configure sFTP now, please enter FTP host, else leave blank"
+echo "If you want to configure sFTP now, please enter FTP host. Type Q to skip sFTP configuration"
 read FTP_HOST
+if [[ $FTP_HOST =~ ^[Qq]$  ]]; then
+	FTP_HOST=''
+fi
 if [[ -n "$FTP_HOST" ]]; then
 
 	ABORT_SFTP=false

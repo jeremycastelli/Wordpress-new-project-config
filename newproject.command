@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Version = 1.2.1
+# Version = 1.2.2
 
 # --------------------
 # Load Variables
@@ -298,7 +298,7 @@ wp-config-local.php
 # Launch default browser
 # --------------------
 echo 'Launch browser'
-open 'http://macbook-pro-de-pitch.local/'$PROJECT_NAME
+open $LOCAL_URL$PROJECT_NAME
 
 echo 'Installation Complete, press enter to quit'
 read

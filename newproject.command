@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Version = 1.2.2
+# Version = 1.3
 
 # --------------------
 # Load Variables
@@ -90,14 +90,17 @@ if [[ -n "$FTP_HOST" ]]; then
 
 fi
 
+
+# --------------------
+# Function
+# Download unzip and remove
+# --------------------
 function fetch_zip()
 {
 	curl -o file.zip $1
 	unzip -q file.zip
 	rm file.zip
 }
-
-
 
 # --------------------
 # Create project directory
@@ -132,13 +135,13 @@ rm -r twentyeleven
 rm -r twentytwelve
 
 # --------------------
-# Remove Hello Dolly plugin
+# Remove Hello Dolly plugin and fetch plugins
 # --------------------
 echo 'Remove Hello Dolly and fetch your plugins'
 cd ../plugins/
 rm hello.php
 
-for PLUGIN in ${PLUGINS[@]}
+for PLUGIN in ${PLUGINS_URL[@]}
 do
 	fetch_zip $PLUGIN
 done

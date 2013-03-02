@@ -12,6 +12,7 @@ The script will
 - Remove readme.html and license.txt
 - Fetch your favorite starter theme and rename it with your project name
 - Remove twentyten, twentyeleven and twentytwelve themes
+- Fetch a list of plugins you want on every projects
 - Remove Hello Dolly plugin
 - Fetch H5BP server-configs .htaccess
 - Create a database with your project name
@@ -46,6 +47,7 @@ You can edit the script with your favourite code editor and change some variable
 - DIRECTORY you can type your projects folder path
 - WORDPRESS_URL must be a zip to download, I use zip download rather than a git repository cause I personally fetch a locale (french) version of wordpress 
 - THEME_URL must be a git repository
+- PLUGINS_URL is a list of plugins from the wordpress.org plugin directory
 - DB_USER, DB_PASSWORD, DB_HOST these are the defaults for MAMP
 - LOCAL_URL default is localhost:8888/ for MAMP but you could have changed it
 
@@ -57,6 +59,9 @@ The .command extension allow to make the script double clickable
 Tip : If you are using Alfred or an other launcher application, you can execute the script from everywhere! 
 
 ##Changelog
+
+###v1.3
+- Now you can fetch a list a plugins from the wordpress.org plugin directory
 
 ###v1.2.2
 - Fixed the path for browser launching (thanks to <a href="https://github.com/aarow" >Aarow</a>)

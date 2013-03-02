@@ -90,6 +90,15 @@ if [[ -n "$FTP_HOST" ]]; then
 
 fi
 
+function fetch_zip()
+{
+	curl -o file.zip $1
+	unzip -q file.zip
+	rm file.zip
+}
+
+
+
 # --------------------
 # Create project directory
 # --------------------
@@ -101,11 +110,9 @@ cd $PROJECT_NAME
 # Fetch Wordpress latest build
 # --------------------
 echo 'Download Wordpress...'
-curl -o wordpress.zip $WORDPRESS_URL
-echo 'Unzip Wordpress...'
-unzip -q wordpress.zip && cp -R wordpress/* .
-rm wordpress.zip && rm -rf wordpress && rm readme.html && rm license.txt
-
+fetch_zip $WORDPRESS_URL
+cp -R wordpress/* .
+rm -rf wordpress && rm readme.html && rm license.txt
 
 # --------------------
 # Fetch H5BP server-config .htaccess
@@ -127,7 +134,17 @@ rm -r twentytwelve
 # --------------------
 # Remove Hello Dolly plugin
 # --------------------
-rm ../plugins/hello.php
+cd ../plugins/
+rm hello.php
+
+for PLUGIN in ${PLUGINS[@]}
+do
+	fetch_zip $PLUGIN
+done
+
+
+echo "stop now"
+read
 
 # --------------------
 # Create Wordpress wp-config.php

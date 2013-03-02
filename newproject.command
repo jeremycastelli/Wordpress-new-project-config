@@ -124,7 +124,7 @@ rm -rf server-configs
 # --------------------
 # Fetch base theme & remove default themes
 # --------------------
-echo 'Remove default themes and plugins...'
+echo 'Remove default themes and fetch your starter theme'
 cd wp-content/themes/
 git clone $THEME_URL $PROJECT_NAME
 rm -r twentyten
@@ -134,6 +134,7 @@ rm -r twentytwelve
 # --------------------
 # Remove Hello Dolly plugin
 # --------------------
+echo 'Remove Hello Dolly and fetch your plugins'
 cd ../plugins/
 rm hello.php
 
@@ -141,10 +142,6 @@ for PLUGIN in ${PLUGINS[@]}
 do
 	fetch_zip $PLUGIN
 done
-
-
-echo "stop now"
-read
 
 # --------------------
 # Create Wordpress wp-config.php

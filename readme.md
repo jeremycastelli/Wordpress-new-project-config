@@ -55,7 +55,9 @@ and for sure, you can modify or delete some part not useful for you
 
 ##Why a .command extension?
 The script is a common shell script with normally a .sh extension
+
 The .command extension allow to make the script double clickable
+
 Tip : If you are using Alfred or an other launcher application, you can execute the script from everywhere! 
 
 ##Changelog

@@ -284,8 +284,7 @@ if [[ $FTP_HOST != "" ]]; then
 	create_FTP_file $FTP_ROOT
 	cd "wp-content/themes/"$PROJECT_NAME
 	create_FTP_file $FTP_ROOT"/wp-content/themes/"$PROJECT_NAME
-	cd ../
-	cd plugins
+	cd ../../plugins
 	create_FTP_file $FTP_ROOT"/wp-content/plugins"
 fi
 

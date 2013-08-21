@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Version = 1.3
+# Version = 1.3.1
 
 # --------------------
 # Load Variables
@@ -31,7 +31,7 @@ read TABLE_PREFIX
 if [[ $TABLE_PREFIX == "" ]]; then
 	TABLE_PREFIX="wp_"
 fi
-/Applications/MAMP/Library/bin/mysql -u $DB_USER -p$DB_PASSWORD -e "create database "$PROJECT_NAME
+$MYSQL_PATH -u $DB_USER -p$DB_PASSWORD -e "create database "$PROJECT_NAME
 
 # --------------------
 # Set FTP parmmeters for sublime SFTP mapping
@@ -293,7 +293,7 @@ fi
 # --------------------
 echo 'Launch Sublime text 2'
 cd $PROJECT_DIR
-sublime $SUBLIME_PROJECT_FILE
+"$SUBLIME_PATH" $SUBLIME_PROJECT_FILE
 
 # --------------------
 # Create a new project in CodeKit

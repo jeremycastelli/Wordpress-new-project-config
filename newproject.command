@@ -31,7 +31,7 @@ read TABLE_PREFIX
 if [[ $TABLE_PREFIX == "" ]]; then
 	TABLE_PREFIX="wp_"
 fi
-$MYSQL_PATH -u $DB_USER -p$DB_PASSWORD -e "create database "$PROJECT_NAME
+$MYSQL_PATH -u$DB_USER -p$DB_PASSWORD -e "create database "$PROJECT_NAME
 
 # --------------------
 # Set FTP parmmeters for sublime SFTP mapping
@@ -120,9 +120,9 @@ rm -rf wordpress && rm readme.html && rm license.txt
 # --------------------
 # Fetch H5BP server-config .htaccess
 # --------------------
-git clone https://github.com/h5bp/server-configs.git
-cp server-configs/apache/.htaccess .htaccess
-rm -rf server-configs
+git clone https://github.com/h5bp/server-configs-apache.git
+cp server-configs-apache/.htaccess .htaccess
+rm -rf server-configs-apache
 
 # --------------------
 # Fetch base theme & remove default themes
@@ -130,15 +130,40 @@ rm -rf server-configs
 echo 'Remove default themes and fetch your starter theme'
 cd wp-content/themes/
 git clone $THEME_URL $PROJECT_NAME
-rm -r twentyten
-rm -r twentyeleven
+rm -r twentyfourteen
+rm -r twentythirteen
 rm -r twentytwelve
+
+# --------------------
+# Fetch Gruntfile 
+# --------------------
+echo 'Download Grunt...'
+cd $PROJECT_NAME/assets
+git clone $GRUNTFILE_URL
+cd $GRUNTFILE_NAME
+npm install
+
+# --------------------
+# Fetch Normalize.css 
+# --------------------
+echo 'Download Normalize...'
+cd .. 
+curl -o normalize.css https://github.com/necolas/normalize.css/blob/master/normalize.css
+cp normalize.css styles/vendor/normalize.css 
+rm -rf normalize.css
+
+# # --------------------
+# # Fetch Bourbon 
+# # --------------------
+echo 'Install Bourbon...'
+cd styles/vendor/
+bourbon install
 
 # --------------------
 # Remove Hello Dolly plugin and fetch plugins
 # --------------------
 echo 'Remove Hello Dolly and fetch your plugins'
-cd ../plugins/
+cd $PROJECT_DIR/wp-content/plugins
 rm hello.php
 
 for PLUGIN in ${PLUGINS_URL[@]}
@@ -298,8 +323,8 @@ cd $PROJECT_DIR
 # --------------------
 # Create a new project in CodeKit
 # --------------------
-echo 'Create codekit project'
-open -a /Applications/CodeKit.app $PROJECT_DIR"/wp-content/themes/"$PROJECT_NAME
+#echo 'Create codekit project'
+#open -a /Applications/CodeKit.app $PROJECT_DIR"/wp-content/themes/"$PROJECT_NAME
 
 # --------------------
 # git init

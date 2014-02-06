@@ -1,6 +1,8 @@
 #!/bin/sh
 
-# Version = 1.3.1
+# Version = 1.3.2
+# 
+
 
 # --------------------
 # Load Variables
@@ -31,7 +33,7 @@ read TABLE_PREFIX
 if [[ $TABLE_PREFIX == "" ]]; then
 	TABLE_PREFIX="wp_"
 fi
-$MYSQL_PATH -u $DB_USER -p$DB_PASSWORD -e "create database "$PROJECT_NAME
+$MYSQL_PATH -u$DB_USER -p$DB_PASSWORD -e "create database "$PROJECT_NAME
 
 # --------------------
 # Set FTP parmmeters for sublime SFTP mapping
@@ -120,8 +122,8 @@ rm -rf wordpress && rm readme.html && rm license.txt
 # --------------------
 # Fetch H5BP server-config .htaccess
 # --------------------
-git clone https://github.com/h5bp/server-configs.git
-cp server-configs/apache/.htaccess .htaccess
+git clone https://github.com/h5bp/server-configs-apache.git
+cp server-configs-apache/.htaccess .htaccess
 rm -rf server-configs
 
 # --------------------
@@ -133,6 +135,8 @@ git clone $THEME_URL $PROJECT_NAME
 rm -r twentyten
 rm -r twentyeleven
 rm -r twentytwelve
+rm -r twentythirteen
+rm -r twentyfourteen
 
 # --------------------
 # Remove Hello Dolly plugin and fetch plugins

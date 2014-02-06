@@ -60,6 +60,11 @@ Tip : If you are using Alfred or an other launcher application, you can execute 
 
 ##Changelog
 
+###v1.3.2
+- fixe a mySQL issue
+- Remove twentythirteen and twentyfourteen theme
+- Update fetching of the new H5BP .htaccess
+
 ###v1.3.1
 - Add mysql path in the config file 
 - Add sublime text path in the config file

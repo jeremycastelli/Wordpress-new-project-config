@@ -146,7 +146,7 @@ npm install
 # # --------------------
 # # Fetch Bourbon 
 # # --------------------
-echo 'Install Bourbon...'
+echo 'Install Bourbon.....'
 cd stylesheets/lib/
 bourbon install
 

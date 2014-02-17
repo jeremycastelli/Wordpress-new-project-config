@@ -146,18 +146,18 @@ npm install
 # --------------------
 # Fetch Normalize.css 
 # --------------------
-echo 'Download Normalize...'
-cd .. 
-curl -o normalize.css https://github.com/necolas/normalize.css/blob/master/normalize.css
-cp normalize.css styles/vendor/normalize.css 
-rm -rf normalize.css
+# echo 'Download Normalize...'
+# cd .. 
+# curl -o normalize.css https://github.com/necolas/normalize.css/blob/master/normalize.css
+# cp normalize.css styles/vendor/normalize.css 
+# rm -rf normalize.css
 
-# # --------------------
-# # Fetch Bourbon 
-# # --------------------
-echo 'Install Bourbon...'
-cd styles/vendor/
-bourbon install
+# # # --------------------
+# # # Fetch Bourbon 
+# # # --------------------
+# echo 'Install Bourbon...'
+# cd styles/vendor/
+# bourbon install
 
 # --------------------
 # Remove Hello Dolly plugin and fetch plugins

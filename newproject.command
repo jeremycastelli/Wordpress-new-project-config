@@ -138,7 +138,7 @@ rm -r twentytwelve
 # Fetch Gruntfile 
 # --------------------
 echo 'Download Grunt...'
-cd $PROJECT_NAME/assets
+cd $PROJECT_NAME
 git clone $GRUNTFILE_URL
 cd $GRUNTFILE_NAME
 npm install
@@ -146,8 +146,8 @@ npm install
 # # --------------------
 # # Fetch Bourbon 
 # # --------------------
-echo 'Install Bourbon.....'
-cd stylesheets/lib/
+echo 'Install Bourbon...'
+cd ../stylesheets/lib/
 bourbon install
 
 # --------------------

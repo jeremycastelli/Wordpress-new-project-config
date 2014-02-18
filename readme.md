@@ -64,7 +64,7 @@ Tip : If you are using Alfred or an other launcher application, you can execute 
 - Fixed SQL Username syntaxe
 - Updated Default Wordpress theme to be deleted
 - Fixed h5bp .htaccess URL
-- Add Gruntfile
+- Updated underconstruction plug-in
 
 ###v1.3.1
 - Add mysql path in the config file 

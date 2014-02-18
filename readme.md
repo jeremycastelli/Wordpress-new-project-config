@@ -61,10 +61,12 @@ Tip : If you are using Alfred or an other launcher application, you can execute 
 ##Changelog
 
 ###v1.4
+- Fixed h5bp .htaccess URL
 - Fixed SQL Username syntaxe
 - Updated Default Wordpress theme to be deleted
-- Fixed h5bp .htaccess URL
 - Updated underconstruction plug-in
+- Now you can fetch a Gruntfile
+- Added Bourbon lib
 
 ###v1.3.1
 - Add mysql path in the config file 

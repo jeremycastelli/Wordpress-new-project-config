@@ -61,7 +61,7 @@ Tip : If you are using Alfred or an other launcher application, you can execute 
 ##Changelog
 
 ###v1.4
-- Fixed SQL Username synthax
+- Fixed SQL Username syntaxe
 - Updated Default Wordpress theme to be deleted
 - Fixed h5bp .htaccess URL
 - Add Gruntfile

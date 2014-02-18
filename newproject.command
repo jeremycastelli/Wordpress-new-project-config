@@ -324,6 +324,8 @@ echo 'git init'
 git init
 echo ".DS_Store
 wp-config-local.php
+Gruntfile_wp/
+stylesheets/lib/bourbon/
 .sass-cache" > .gitignore
 
 # --------------------

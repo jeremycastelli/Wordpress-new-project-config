@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Version = 1.3.2
+# Version = 1.3.3
 # 
 
 
@@ -131,12 +131,14 @@ rm -rf server-configs
 # --------------------
 echo 'Remove default themes and fetch your starter theme'
 cd wp-content/themes/
-git clone $THEME_URL $PROJECT_NAME
+git clone --recursive $THEME_URL $PROJECT_NAME
 rm -r twentyten
 rm -r twentyeleven
 rm -r twentytwelve
 rm -r twentythirteen
 rm -r twentyfourteen
+rm -r twentyfifteen
+rm -r twentysixteen
 
 # --------------------
 # Remove Hello Dolly plugin and fetch plugins

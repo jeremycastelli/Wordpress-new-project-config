@@ -60,9 +60,13 @@ Tip : If you are using Alfred or an other launcher application, you can execute 
 
 ##Changelog
 
+###v1.3.3
+- recursively clone submodules in theme repository
+- Remove twentyfifteen and twentysixteen themes
+
 ###v1.3.2
 - fixe a mySQL issue
-- Remove twentythirteen and twentyfourteen theme
+- Remove twentythirteen and twentyfourteen themes
 - Update fetching of the new H5BP .htaccess
 
 ###v1.3.1

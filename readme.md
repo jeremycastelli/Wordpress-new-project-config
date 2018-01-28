@@ -1,10 +1,10 @@
 Wordpress New Project Config
 ====================
 
-##What is Wordpress New Project Config?
+## What is Wordpress New Project Config?
 This little script will save you the hassle of all the repetitives tasks each time you start a new wordpress project.
 
-##So what it does?
+## So what does it do?
 The script will
 - Prompt you for a project name
 - Create a new folder with the project name
@@ -31,7 +31,7 @@ The script will
 - Launch your project in Sublime text 2
 - Open your newly created wordpress website in your favourite browser
 
-##Requirements
+## Requirements
 - I created this script for MAC, I don't know if it works on other platforms.
 - MAMP
 - git
@@ -39,13 +39,13 @@ The script will
 - sublime text 2
 - and sFTP plugin if you want
 
-##Installation
+## Installation
 Just duplicate config-sample.cfg to config.cfg
 
-##Configuration
+## Configuration
 You can edit the script with your favourite code editor and change some variables.
 - DIRECTORY you can type your projects folder path
-- WORDPRESS_URL must be a zip to download, I use zip download rather than a git repository cause I personally fetch a locale (french) version of wordpress 
+- WORDPRESS_URL must be a zip to download, I use zip download rather than a git repository cause I personally fetch a locale (French) version of wordpress 
 - THEME_URL must be a git repository
 - PLUGINS_URL is a list of plugins from the wordpress.org plugin directory
 - DB_USER, DB_PASSWORD, DB_HOST these are the defaults for MAMP
@@ -53,44 +53,44 @@ You can edit the script with your favourite code editor and change some variable
 
 and for sure, you can modify or delete some part not useful for you
 
-##Why a .command extension?
+## Why a .command extension?
 The script is a common shell script with normally a .sh extension  
-The .command extension allow to make the script double clickable  
+The .command extension allows you to make the script double clickable  
 Tip : If you are using Alfred or an other launcher application, you can execute the script from everywhere! 
 
-##Changelog
+## Changelog
 
-###v1.3.3
-- recursively clone submodules in theme repository
+### v1.3.3
+- Recursively clone submodules in theme repository
 - Remove twentyfifteen and twentysixteen themes
 
-###v1.3.2
-- fixe a mySQL issue
+### v1.3.2
+- Fixed a mySQL issue
 - Remove twentythirteen and twentyfourteen themes
 - Update fetching of the new H5BP .htaccess
 
-###v1.3.1
+### v1.3.1
 - Add mysql path in the config file 
 - Add sublime text path in the config file
 
-###v1.3
+### v1.3
 - Now you can fetch a list a plugins from the wordpress.org plugin directory
 
-###v1.2.2
+### v1.2.2
 - Fixed the path for browser launching (thanks to <a href="https://github.com/aarow" >Aarow</a>)
 
-###v1.2.1
+### v1.2.1
 - Fixed sftp config process (thanks to <a href="https://github.com/carlesjove" >Carles Jove</a>)
 
-###v1.2
+### v1.2
 - Do not allow empty strings on FTP config, and allow to abort process (thanks to <a href="https://github.com/carlesjove" >Carles Jove</a>)
 
-###v1.1.2
+### v1.1.2
 - Empty values are now not allowed for project name (thanks to <a href="https://github.com/carlesjove" >Carles Jove</a>)
 
-###v1.1.1
+### v1.1.1
 - Fixed table_prefix issue
 
-###v1.1
+### v1.1
 - Split the configuration part in an another file config.cfg
 - gitignore config.cfg
